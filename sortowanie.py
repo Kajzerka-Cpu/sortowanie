@@ -1,6 +1,7 @@
 import random
 import time
 
+#########################Funkcje sortujace#############
 
 def bubble_sort(lista):
     flaga = True
@@ -16,14 +17,6 @@ def bubble_sort(lista):
         i += 1 
     return lista
 
-
-    
-
-
-
-
-
-
 def selection_sort(lista):
     i = 0
     while i < len(lista)-1:
@@ -37,11 +30,6 @@ def selection_sort(lista):
         i += 1
     return lista
 
-
-
-
-
-
 def insertion_sort(lista):
     i = 1
     while i < len(lista):
@@ -53,7 +41,6 @@ def insertion_sort(lista):
         lista[j+1] = klucz
         i += 1
     return lista
-
 
 def merge_sort(lista):
     if len(lista) > 1:
@@ -83,7 +70,6 @@ def merge_sort(lista):
             r += 1
             k += 1
 
-
 def podziel(lista, start, end):
     znacznik = lista[end]
     low = start
@@ -107,23 +93,9 @@ def quick_sort(lista,start,end):
         quick_sort(lista,start,znacznik - 1)
         quick_sort(lista,znacznik + 1,end)
         
-
+##################Funkcja wypisujaca funkcje sortujące######################
         
-            
-                    
-        
-
-
-    
-    
-        
-
-
-
-
-
-
-def pods(funkcja,lista,metoda,poka_liste = True):
+def wyp(funkcja,lista,metoda,poka_liste = True):
     kopia = lista.copy()
     t1 = time.time()
     funkcja(kopia)
@@ -140,10 +112,7 @@ def pods(funkcja,lista,metoda,poka_liste = True):
     print("Czas z jaką funkcja wykonała sortowanie to:",t2-t1,"sekund.")
     print()
 
-
-
-
-
+##########################Główna petla programu##############################
 while True:
     print("Jaką metode sortowania chcesz przetestować?")
     print('''
@@ -170,23 +139,21 @@ while True:
         else:
             print("Musisz podać liczbe")
     if wybor == "1":
-        pods(bubble_sort,lista,"bubble_sort")               
+        wyp(bubble_sort,lista,"bubble_sort")               
     elif wybor == "2":
-        pods(selection_sort,lista,"selection_sort")
+        wyp(selection_sort,lista,"selection_sort")
     elif wybor == "3":
-        pods(insertion_sort,lista,"insertion_sort")
+        wyp(insertion_sort,lista,"insertion_sort")
     elif wybor == "4":
-        pods(merge_sort,lista,"merge_sort")
+        wyp(merge_sort,lista,"merge_sort")
     elif wybor == "5":
-        pods(lambda l: quick_sort(l, 0, len(l)-1),lista,"quick_sort")
-        
-        
+        wyp(lambda l: quick_sort(l, 0, len(l)-1),lista,"quick_sort")      
     elif wybor == "9":
-        pods(bubble_sort,lista,"bubble_sort",False)
-        pods(selection_sort,lista,"selection_sort",False)
-        pods(insertion_sort,lista,"insertion_sort",False)
-        pods(merge_sort,lista,"merge_sort",False)
-        pods(lambda l: quick_sort(l, 0, len(l)-1),lista,"quick_sort",False)
+        wyp(bubble_sort,lista,"bubble_sort",False)
+        wyp(selection_sort,lista,"selection_sort",False)
+        wyp(insertion_sort,lista,"insertion_sort",False)
+        wyp(merge_sort,lista,"merge_sort",False)
+        wyp(lambda l: quick_sort(l, 0, len(l)-1),lista,"quick_sort",False)
         
 
 
